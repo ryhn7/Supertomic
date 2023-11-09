@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-Color primaryTextColor = const Color(0xFF414C6B);
-Color secondaryTextColor = const Color(0xFFE4979E);
-Color titleTextColor = Colors.white;
-Color contentTextColor = const Color(0xff868686);
-Color navigationColor = const Color(0xFF282F44);
-Color gradientStartColor = const Color(0xFFffba08);
-Color gradientEndColor = const Color(0xFFdc2f02);
+Color lust = const Color(0xFFe91a1a);
+Color maximumRed = const Color(0xFFd91b1b);
+Color japaneseIndigo = const Color(0xff2c374f);
+Color darkBlue = const Color(0xFF1a64a7);
+Color blueGray = const Color(0xFF334b71);
+Color gray = const Color(0xFF82858a);
+Color oliveGreen = const Color(0xFF959d86);
