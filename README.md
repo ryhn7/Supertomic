@@ -1,4 +1,4 @@
-# supertomic
+# Supertomic
 
 A new Flutter project.
 
