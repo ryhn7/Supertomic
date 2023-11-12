@@ -52,7 +52,7 @@ var comicModelList = [
       synopsis:
           'Who is under the mask? And why do they want Batman dead? The incredible future of Batman adventures begins here!'),
   ComicModel(
-      coverImage: 'assets/images/comics/thor.jpg',
+      coverImage: 'assets/images/comics/first_thunder.jpg',
       title: 'Thor: First Thunder (2010) "#1',
       author: 'Bryan J.L. Glass',
       rating: 4.4,
