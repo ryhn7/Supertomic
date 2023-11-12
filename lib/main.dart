@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:supertomic/screen/components/comic_card.dart';
+import 'package:supertomic/screen/widgets/comic_card.dart';
 import 'package:supertomic/screen/home_screen.dart';
 
 void main() {

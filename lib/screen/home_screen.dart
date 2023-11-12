@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:supertomic/data/model/comic_model.dart';
-import 'package:supertomic/screen/components/comic_card.dart';
+import 'package:supertomic/screen/widgets/comic_card.dart';
 import 'package:supertomic/theme/style.dart';
 
 class HomeScreen extends StatelessWidget {
