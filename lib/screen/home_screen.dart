@@ -25,36 +25,40 @@ class HomeScreen extends StatelessWidget {
               ],
             ),
             const SizedBox(height: 20),
-            Container(
-              margin: const EdgeInsets.only(left: 16),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text('TOP RATED COMICS',
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(left: 16),
+                  child: Text('TOP RATED COMICS',
                       style: getGeneraBoldStyle20(color: Colors.black)),
-                  const SizedBox(height: 20),
-                  SizedBox(
-                      height: 430,
-                      child: ListView.builder(
-                        itemCount: comicModelList.length,
-                        itemBuilder: (context, index) {
-                          final ComicModel comicData = comicModelList[index];
-                          return InkWell(
-                            onTap: () {},
-                            child: Container(
-                              margin: const EdgeInsets.only(right: 20),
-                              child: SizedBox(
-                                width: 206,
-                                child: ComicCard(comicData),
-                              ),
+                ),
+                const SizedBox(height: 20),
+                SizedBox(
+                    height: 430,
+                    child: ListView.builder(
+                      padding: const EdgeInsets.only(left: 0),
+                      itemCount: comicModelList.length,
+                      scrollDirection: Axis.horizontal,
+                      itemBuilder: (context, index) {
+                        final ComicModel comicData = comicModelList[index];
+                        final bool isLastItem =
+                            index == comicModelList.length - 1;
+                        return SizedBox(
+                          child: Container(
+                            margin: EdgeInsets.only(
+                              left: index == 0 ? 16 : 0,
+                              right: isLastItem ? 16 : 20,
                             ),
-                          );
-                        },
-                        scrollDirection: Axis.horizontal,
-                      )
-                      )
-                ],
-              ),
+                            child: InkWell(
+                              onTap: () {},
+                              child: ComicCard(comicData),
+                            ),
+                          ),
+                        );
+                      },
+                    ))
+              ],
             )
           ],
         ),
