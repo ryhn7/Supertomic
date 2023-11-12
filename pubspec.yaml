@@ -31,7 +31,6 @@ dependencies:
   flutter:
     sdk: flutter
 
-
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
@@ -52,7 +51,6 @@ dev_dependencies:
 
 # The following section is specific to Flutter packages.
 flutter:
-
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.
@@ -60,6 +58,8 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
+    - assets/images/comics/
+    - assets/images/heroes/
     - assets/images/
   #   - images/a_dot_ham.jpeg
 
@@ -80,7 +80,6 @@ flutter:
         - asset: assets/fonts/Action-Man.ttf
           weight: 400
 
-
     - family: Comic-Book
       fonts:
         - asset: assets/fonts/Comic-Book-Regular.otf
@@ -89,19 +88,17 @@ flutter:
         - asset: assets/fonts/Comic-Book-Bold.otf
           weight: 700
 
-
     - family: Genera
       fonts:
         - asset: assets/fonts/Genera.ttf
           weight: 400
-
 
     - family: Helvetica
       fonts:
         - asset: assets/fonts/Helvetica.ttf
           weight: 400
 
-        - asset: assets/fonts/Helvetica-Bold.otf
+        - asset: assets/fonts/Helvetica-Bold.ttf
           weight: 700
 
   #
