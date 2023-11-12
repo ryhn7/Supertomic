@@ -13,70 +13,22 @@ TextStyle _getTextStyle(
 
 }
 
-// regular style
-TextStyle getRegularStyle(
-    {double fontSize = FontSize.s12, required Color color}) {
-  return _getTextStyle(fontSize, FontConstants.fontFamily,
-      FonttWeightManager.fontWeightRegular, color);
-}
-
-TextStyle getRegularStyle16(
-    {double fontSize = FontSize.s16, required Color color}) {
-  return _getTextStyle(fontSize, FontConstants.fontFamily,
-      FonttWeightManager.fontWeightRegular, color);
-}
-
-// medium style
-TextStyle getMediumStyle(
-    {double fontSize = FontSize.s12, required Color color}) {
-  return _getTextStyle(fontSize, FontConstants.fontFamily,
-      FonttWeightManager.fontWeightMedium, color);
-}
-TextStyle getMediumStyle16(
-    {double fontSize = FontSize.s16, required Color color}) {
-  return _getTextStyle(fontSize, FontConstants.fontFamily,
-      FonttWeightManager.fontWeightMedium, color);
-}
-
-// light style
-TextStyle getLightStyle(
-    {double fontSize = FontSize.s12, required Color color}) {
-  return _getTextStyle(fontSize, FontConstants.fontFamily,
-      FonttWeightManager.fontWeightLight, color);
-}
-
-// bold style
-TextStyle getBoldStyle(
-    {double fontSize = FontSize.s12, required Color color}) {
-  return _getTextStyle(fontSize, FontConstants.fontFamily,
-      FonttWeightManager.fontWeightBold, color);
-}
-
-// bold style
-TextStyle getBoldStyle20(
+// Genera
+TextStyle getGeneraBoldStyle20(
     {double fontSize = FontSize.s20, required Color color}) {
-  return _getTextStyle(fontSize, FontConstants.fontFamily,
+  return _getTextStyle(fontSize, FontGenera.fontFamily,
       FonttWeightManager.fontWeightBold, color);
 }
 
-TextStyle getBoldStyle35(
-    {double fontSize = FontSize.s35, required Color color}) {
-  return _getTextStyle(fontSize, FontConstants.fontFamily,
-      FonttWeightManager.fontWeightBold, color);
+// ComicBook
+TextStyle getComicBookRegular14(
+    {double fontSize = FontSize.s14, required Color color}) {
+  return _getTextStyle(fontSize, FontComicBook.fontFamily,
+      FonttWeightManager.fontWeightRegular, color);
 }
-
-
-// extra bold style
-TextStyle getEBStyle35(
-    {double fontSize = FontSize.s35, required Color color}) {
-  return _getTextStyle(fontSize, FontConstants.fontFamily,
-      FonttWeightManager.fontWeightExtraBold, color);
-}
-
-
-// semi bold style
-TextStyle getSemiBoldStyle(
+TextStyle getComicBookRegular12(
     {double fontSize = FontSize.s12, required Color color}) {
-  return _getTextStyle(fontSize, FontConstants.fontFamily,
-      FonttWeightManager.fontWeightSemiBold, color);
+  return _getTextStyle(fontSize, FontComicBook.fontFamily,
+      FonttWeightManager.fontWeightRegular, color);
 }
+

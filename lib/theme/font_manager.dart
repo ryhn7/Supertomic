@@ -1,5 +1,17 @@
 import 'package:flutter/material.dart';
 
+class FontActionMan {
+  static const String fontFamily = 'Action-Man';
+}
+class FontComicBook {
+  static const String fontFamily = 'Comic-Book';
+}
+class FontGenera {
+  static const String fontFamily = 'Genera';
+}
+class FontHelvetica {
+  static const String fontFamily = 'Helvetica';
+}
 class FontConstants {
   static const String fontFamily = 'PlayfairDisplay';
 }
