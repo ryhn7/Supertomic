@@ -32,3 +32,10 @@ TextStyle getComicBookRegular12(
       FonttWeightManager.fontWeightRegular, color);
 }
 
+// ActionMan
+TextStyle getActionManRegular14(
+    {double fontSize = FontSize.s14, required Color color}) {
+  return _getTextStyle(fontSize, FontActionMan.fontFamily,
+      FonttWeightManager.fontWeightRegular, color);
+}
+
