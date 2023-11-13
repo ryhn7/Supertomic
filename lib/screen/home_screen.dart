@@ -1,3 +1,4 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:supertomic/data/model/comic_model.dart';
 import 'package:supertomic/data/model/hero_model.dart';
@@ -11,17 +12,59 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Widget header() {
-      return Stack(
-        children: [
-          Container(
-            decoration: const BoxDecoration(
-              color: Colors.deepPurple,
+      final List<Widget> imageSliders = [
+        Stack(
+          children: [
+            SizedBox(
+              height: 356,
+              child: Image.asset(
+                'assets/images/heroes/gotham.png',
+                fit: BoxFit.cover,
+              ),
             ),
+            Image.asset('assets/images/heroes/batman_cover.png'),
+          ],
+        ),
+        Stack(
+          children: [
+            SizedBox(
+              height: 356,
+              child: Image.asset(
+                'assets/images/heroes/gotham.png',
+                fit: BoxFit.cover,
+              ),
+            ),
+            Image.asset('assets/images/heroes/superman_cover.png', width: 500),
+          ],
+        ),
+        Stack(
+          children: [
+            SizedBox(
+              height: 356,
+              child: Image.asset(
+                'assets/images/heroes/gotham.png',
+                fit: BoxFit.cover,
+              ),
+            ),
+            Image.asset('assets/images/heroes/batman_cover.png'),
+          ],
+        )
+      ];
+      return CarouselSlider(
+          options: CarouselOptions(
+            scrollPhysics: const BouncingScrollPhysics(),
+            aspectRatio: 2.0,
+            viewportFraction: 1.0,
             height: 356,
           ),
-          Image.asset('assets/images/heroes/batman_cover.png'),
-        ],
-      );
+          items: imageSliders
+              .map((item) => Builder(
+                    builder: (context) => Container(
+                      width: MediaQuery.of(context).size.width,
+                      child: item,
+                    ),
+                  ))
+              .toList());
     }
 
     Widget heroesSection() {
@@ -38,26 +81,26 @@ class HomeScreen extends StatelessWidget {
             SizedBox(
               height: 160,
               child: ListView.builder(
-                    padding: const EdgeInsets.only(left: 0),
-                    itemCount: heroList.length,
-                    scrollDirection: Axis.horizontal,
-                    itemBuilder: (context, index) {
-                      final HeroModel heroData = heroList[index];
-                      final bool isLastItem = index == heroList.length - 1;
-                      return SizedBox(
-                        child: Container(
-                          margin: EdgeInsets.only(
-                            left: index == 0 ? 16 : 0,
-                            right: isLastItem ? 16 : 20,
-                          ),
-                          child: InkWell(
-                            onTap: () {},
-                            child: HeroesCard(heroData),
-                          ),
-                        ),
-                      );
-                    },
-                  ),
+                padding: const EdgeInsets.only(left: 0),
+                itemCount: heroList.length,
+                scrollDirection: Axis.horizontal,
+                itemBuilder: (context, index) {
+                  final HeroModel heroData = heroList[index];
+                  final bool isLastItem = index == heroList.length - 1;
+                  return SizedBox(
+                    child: Container(
+                      margin: EdgeInsets.only(
+                        left: index == 0 ? 16 : 0,
+                        right: isLastItem ? 16 : 20,
+                      ),
+                      child: InkWell(
+                        onTap: () {},
+                        child: HeroesCard(heroData),
+                      ),
+                    ),
+                  );
+                },
+              ),
             )
           ],
         ),
