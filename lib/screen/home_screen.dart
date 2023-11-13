@@ -35,55 +35,30 @@ class HomeScreen extends StatelessWidget {
               child: Text('YOUR FAVOURITE HEROES',
                   style: getGeneraBoldStyle20(color: Colors.black)),
             ),
-            const SizedBox(height: 20),
-            Row(
-              children: [
-                const SizedBox(width: 16),
-                HeroesCard(),
-                const SizedBox(width: 16),
-                HeroesCard(),
-                const SizedBox(width: 16),
-                HeroesCard(),
-                const SizedBox(width: 16),
-              ],
-            ),
-        
-            // HeroesCard(),
-            // ListView.builder(
-            //       padding: const EdgeInsets.only(left: 0),
-            //       itemCount: heroList.length,
-            //       scrollDirection: Axis.horizontal,
-            //       itemBuilder: (context, index) {
-            //         final HeroModel heroData = heroList[index];
-            //         final bool isLastItem = index == heroList.length - 1;
-            //         return SizedBox(
-            //           child: Container(
-            //             margin: EdgeInsets.only(
-            //               left: index == 0 ? 16 : 0,
-            //               right: isLastItem ? 16 : 20,
-            //             ),
-            //             child: InkWell(
-            //               onTap: () {},
-            //               child: HeroesCard(heroData),
-            //             ),
-            //           ),
-            //         );
-            //       },
-            //     )
-            // ListView(
-            //   scrollDirection: Axis.horizontal,
-            //   children: [
-            //     // loop 10 times
-            //     for (var i = 0; i < 10; i++)
-            //       Container(
-            //         margin: const EdgeInsets.only(right: 20),
-            //         child: const SizedBox(
-            //           width: 206,
-            //           child: HeroesCard(),
-            //         ),
-            //       )
-            //   ],
-            // ),
+            SizedBox(
+              height: 160,
+              child: ListView.builder(
+                    padding: const EdgeInsets.only(left: 0),
+                    itemCount: heroList.length,
+                    scrollDirection: Axis.horizontal,
+                    itemBuilder: (context, index) {
+                      final HeroModel heroData = heroList[index];
+                      final bool isLastItem = index == heroList.length - 1;
+                      return SizedBox(
+                        child: Container(
+                          margin: EdgeInsets.only(
+                            left: index == 0 ? 16 : 0,
+                            right: isLastItem ? 16 : 20,
+                          ),
+                          child: InkWell(
+                            onTap: () {},
+                            child: HeroesCard(heroData),
+                          ),
+                        ),
+                      );
+                    },
+                  ),
+            )
           ],
         ),
       );
@@ -135,8 +110,8 @@ class HomeScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             header(),
-            // comicSection(),
             heroesSection(),
+            comicSection(),
           ],
         ),
       ),
