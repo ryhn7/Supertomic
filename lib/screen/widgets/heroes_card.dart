@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:supertomic/data/model/hero_model.dart';
-import 'package:supertomic/theme/colors.dart';
+import 'package:supertomic/theme/style.dart';
 
 class HeroesCard extends StatelessWidget {
-  // final HeroModel heroData;
-  const HeroesCard({super.key});
+  final HeroModel heroData;
+  const HeroesCard(this.heroData, {super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -15,17 +15,26 @@ class HeroesCard extends StatelessWidget {
       height: avatarRadius * 2,
       decoration: BoxDecoration(
         shape: BoxShape.circle,
-        color: lust,
+        color: heroData.backgroundColor,
       ),
       child: OverflowBox(
         minWidth: 0.0,
         minHeight: 0.0,
         maxWidth: double.infinity,
         maxHeight: double.infinity,
-        child: Image.asset(
-          'assets/images/heroes/spiderman.png',
-          width: 130,
-          height: 130,
+        child: Column(
+          children: [
+            Image.asset(
+              heroData.heroImage,
+              width: 130,
+              height: 130,
+            ),
+            const SizedBox(height: 8),
+            Text(
+              heroData.name,
+              style: getActionManRegular14(color: Colors.black),
+            )
+          ],
         ),
       ),
     );
