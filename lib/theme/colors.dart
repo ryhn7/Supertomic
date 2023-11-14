@@ -7,3 +7,4 @@ Color darkBlue = const Color(0xFF1a64a7);
 Color blueGray = const Color(0xFF334b71);
 Color gray = const Color(0xFF82858a);
 Color oliveGreen = const Color(0xFF959d86);
+Color celestialBlue = const Color(0xFF4f99d7);
