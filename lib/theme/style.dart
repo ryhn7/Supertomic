@@ -105,3 +105,22 @@ TextStyle getHelveticaExtraBold16(
   return _getTextStyle(fontSize, FontHelvetica.fontFamily,
       FonttWeightManager.fontWeightExtraBold, color);
 }
+
+// Chams
+TextStyle getChamsBold14(
+    {double fontSize = FontSize.s14, required Color color}) {
+  return _getTextStyle(fontSize, FontChams.fontFamily,
+      FonttWeightManager.fontWeightBold, color);
+}
+
+TextStyle getChamsBlack14(
+    {double fontSize = FontSize.s14, required Color color}) {
+  return _getTextStyle(fontSize, FontChams.fontFamily,
+      FonttWeightManager.fontWeightExtraBold, color);
+}
+
+TextStyle getChamsBlack16(
+    {double fontSize = FontSize.s16, required Color color}) {
+  return _getTextStyle(fontSize, FontChams.fontFamily,
+      FonttWeightManager.fontWeightExtraBold, color);
+}

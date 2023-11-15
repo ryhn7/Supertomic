@@ -102,6 +102,14 @@ flutter:
         - asset: assets/fonts/Helvetica-Bold.ttf
           weight: 700
 
+    - family: Chams
+      fonts:
+        - asset: assets/fonts/ChamsBold.ttf
+          weight: 700
+
+        - asset: assets/fonts/ChamsBlack.ttf
+          weight: 900
+
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
