@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:supertomic/screen/home_screen.dart';
 import 'package:supertomic/screen/splash_screen.dart';
 
 void main() {
