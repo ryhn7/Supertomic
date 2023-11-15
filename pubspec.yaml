@@ -76,22 +76,14 @@ flutter:
   # list giving the asset and other descriptors for the font. For
   # example:
   fonts:
-    - family: Action-Man
-      fonts:
-        - asset: assets/fonts/Action-Man.ttf
-          weight: 400
-
-    - family: Comic-Book
-      fonts:
-        - asset: assets/fonts/Comic-Book-Regular.otf
-          weight: 400
-
-        - asset: assets/fonts/Comic-Book-Bold.otf
-          weight: 700
-
     - family: Genera
       fonts:
         - asset: assets/fonts/Genera.ttf
+          weight: 400
+
+    - family: Bangers
+      fonts:
+        - asset: assets/fonts/Bangers-Regular.ttf
           weight: 400
 
     - family: Helvetica

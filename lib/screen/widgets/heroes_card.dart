@@ -32,7 +32,7 @@ class HeroesCard extends StatelessWidget {
             const SizedBox(height: 8),
             Text(
               heroData.name,
-              style: getActionManRegular14(color: Colors.black),
+              style: getBangerRegular16(color: Colors.black),
             )
           ],
         ),

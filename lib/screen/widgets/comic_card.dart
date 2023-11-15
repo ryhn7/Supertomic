@@ -26,12 +26,12 @@ class ComicCard extends StatelessWidget {
                 Text(
                   comicData.title,
                   overflow: TextOverflow.ellipsis,
-                  style: getComicBookRegular14(color: Colors.black),
+                  style: getBangersRegular18(color: Colors.black),
                 ),
                 const SizedBox(height: 4),
                 Text(
                   comicData.author,
-                  style: getComicBookRegular14(color: Colors.grey),
+                  style: getBangersRegular18(color: Colors.grey),
                 ),
                 const SizedBox(height: 8),
               ],
@@ -46,7 +46,7 @@ class ComicCard extends StatelessWidget {
                 const SizedBox(width: 4),
                 Text(
                   comicData.rating.toString(),
-                  style: getComicBookRegular14(color: Colors.black),
+                  style: getBangersRegular18(color: Colors.black),
                 ),
               ]),
               Image.asset(comicData.publisherImage, width: 40, height: 50),

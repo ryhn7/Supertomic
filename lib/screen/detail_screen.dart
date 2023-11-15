@@ -76,7 +76,7 @@ class DetailScreen extends StatelessWidget {
                                     comicData.title,
                                     maxLines: 3,
                                     overflow: TextOverflow.ellipsis,
-                                    style: getComicBookRegular18(
+                                    style: getBangersRegular18(
                                         color: Colors.black),
                                   ),
                                 ),
@@ -84,7 +84,7 @@ class DetailScreen extends StatelessWidget {
                                 Text(
                                   comicData.author,
                                   style:
-                                      getComicBookRegular18(color: Colors.grey),
+                                      getBangersRegular18(color: Colors.grey),
                                 ),
                               ],
                             ),
@@ -98,7 +98,7 @@ class DetailScreen extends StatelessWidget {
                                   const SizedBox(width: 4),
                                   Text(
                                     comicData.rating.toString(),
-                                    style: getComicBookRegular14(
+                                    style: getBangersRegular18(
                                         color: Colors.black),
                                   ),
                                 ]),
@@ -109,14 +109,14 @@ class DetailScreen extends StatelessWidget {
                             const SizedBox(height: 12),
                             Text(
                               'Also Read',
-                              style: getComicBookRegular14(color: Colors.black),
+                              style: getBangersRegular18(color: Colors.black),
                             ),
                             const SizedBox(height: 12),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 Text('6000 Deluxe Edition',
-                                    style: getComicBookRegular14(
+                                    style: getBangerRegular14(
                                         color: celestialBlue)),
                                 Icon(Icons.arrow_forward_ios,
                                     size: 16, color: celestialBlue)
@@ -127,7 +127,7 @@ class DetailScreen extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 Text('7000 Deluxe Edition',
-                                    style: getComicBookRegular14(
+                                    style: getBangerRegular14(
                                         color: celestialBlue)),
                                 Icon(Icons.arrow_forward_ios,
                                     size: 16, color: celestialBlue)
@@ -138,7 +138,7 @@ class DetailScreen extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 Text('8000 Deluxe Edition',
-                                    style: getComicBookRegular14(
+                                    style: getBangerRegular14(
                                         color: celestialBlue)),
                                 Icon(Icons.arrow_forward_ios,
                                     size: 16, color: celestialBlue)
@@ -210,9 +210,9 @@ class DetailScreen extends StatelessWidget {
                       children: [
                         Image.asset('assets/images/custom_button.png'),
                         Container(
-                            margin: const EdgeInsets.only(top: 26, left: 90),
+                            margin: const EdgeInsets.only(top: 28, left: 120),
                             child: Text('READ NOW',
-                                style: getComicBookRegular28(
+                                style: getBangersRegular28(
                                     color: Colors.white))),
                       ],
                     ),

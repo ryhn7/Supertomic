@@ -1,11 +1,5 @@
 import 'package:flutter/material.dart';
 
-class FontActionMan {
-  static const String fontFamily = 'Action-Man';
-}
-class FontComicBook {
-  static const String fontFamily = 'Comic-Book';
-}
 class FontGenera {
   static const String fontFamily = 'Genera';
 }
@@ -14,6 +8,9 @@ class FontHelvetica {
 }
 class FontChams {
   static const String fontFamily = 'Chams';
+}
+class FontBangers {
+  static const String fontFamily = 'Bangers';
 }
 
 class FonttWeightManager{
@@ -35,5 +32,5 @@ class FontSize{
   static const double s24 = 24.0;
   static const double s28 = 28.0;
   static const double s32 = 32.0;
-  static const double s35 = 45.0;
+  static const double s72 = 72.0;
 }
