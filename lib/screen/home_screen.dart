@@ -2,6 +2,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:supertomic/data/model/comic_model.dart';
 import 'package:supertomic/data/model/hero_model.dart';
+import 'package:supertomic/screen/detail_screen.dart';
 import 'package:supertomic/screen/widgets/comic_card.dart';
 import 'package:supertomic/screen/widgets/heroes_card.dart';
 import 'package:supertomic/theme/style.dart';
@@ -23,6 +24,11 @@ class HomeScreen extends StatelessWidget {
               ),
             ),
             Image.asset('assets/images/heroes/batman_cover.png'),
+            Positioned(
+                left: 16,
+                bottom: 30,
+                child: Text('THE DARK KNIGHT',
+                    style: getGeneraBoldStyle32(color: Colors.white))),
           ],
         ),
         Stack(
@@ -30,11 +36,20 @@ class HomeScreen extends StatelessWidget {
             SizedBox(
               height: 356,
               child: Image.asset(
-                'assets/images/heroes/gotham.png',
+                'assets/images/heroes/superman_background.png',
                 fit: BoxFit.cover,
               ),
             ),
-            Image.asset('assets/images/heroes/superman_cover.png', width: 500),
+            Positioned(
+                top: 3,
+                right: 2,
+                child: Image.asset('assets/images/heroes/superman_cover.png',
+                    width: 500)),
+            Positioned(
+                left: 16,
+                bottom: 30,
+                child: Text('MAN OF STEEL',
+                    style: getGeneraBoldStyle32(color: Colors.white))),
           ],
         ),
         Stack(
@@ -42,11 +57,21 @@ class HomeScreen extends StatelessWidget {
             SizedBox(
               height: 356,
               child: Image.asset(
-                'assets/images/heroes/gotham.png',
+                'assets/images/heroes/thor_background.png',
                 fit: BoxFit.cover,
               ),
             ),
-            Image.asset('assets/images/heroes/batman_cover.png'),
+            Positioned(
+                left: 10,
+                child: Image.asset(
+                  'assets/images/heroes/thor_cover.png',
+                  width: 400,
+                )),
+                Positioned(
+              left: 16,
+              bottom: 30,
+              child: Text('GOD OF THUNDER',
+                  style: getGeneraBoldStyle32(color: Colors.white))),
           ],
         )
       ];
@@ -54,6 +79,7 @@ class HomeScreen extends StatelessWidget {
           options: CarouselOptions(
             scrollPhysics: const BouncingScrollPhysics(),
             aspectRatio: 2.0,
+            autoPlay: true,
             viewportFraction: 1.0,
             height: 356,
           ),
@@ -94,7 +120,11 @@ class HomeScreen extends StatelessWidget {
                         right: isLastItem ? 16 : 20,
                       ),
                       child: InkWell(
-                        onTap: () {},
+                        onTap: () => {
+                          ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                              content: Text('You choose ${heroData.name}'),
+                              duration: const Duration(seconds: 2)))
+                        },
                         child: HeroesCard(heroData),
                       ),
                     ),
@@ -135,7 +165,12 @@ class HomeScreen extends StatelessWidget {
                           right: isLastItem ? 16 : 20,
                         ),
                         child: InkWell(
-                          onTap: () {},
+                          onTap: () {
+                            Navigator.push(context,
+                                MaterialPageRoute(builder: (context) {
+                              return DetailScreen(comicData);
+                            }));
+                          },
                           child: ComicCard(comicData),
                         ),
                       ),
