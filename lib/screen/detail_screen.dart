@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:supertomic/data/model/comic_model.dart';
 import 'package:supertomic/theme/colors.dart';
 import 'package:supertomic/theme/style.dart';
 
 class DetailScreen extends StatelessWidget {
-  const DetailScreen({super.key});
+  final ComicModel comicData;
+  const DetailScreen(this.comicData, {super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -13,11 +15,30 @@ class DetailScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            InkWell(
-                onTap: () {
-                  Navigator.pop(context);
-                },
-                child: Image.asset('assets/images/arrow_back.png', width: 26)),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                InkWell(
+                    onTap: () {
+                      Navigator.pop(context);
+                    },
+                    child:
+                        Image.asset('assets/images/arrow_back.png', width: 26)),
+                Stack(children: [
+                  Image.asset(
+                    'assets/images/custom_background_button.png',
+                    width: 70,
+                  ),
+                  const Positioned.fill(
+                    bottom: 5,
+                    child: Align(
+                      alignment: Alignment.center,
+                      child: FavoriteButton(),
+                    ),
+                  ),
+                ])
+              ],
+            ),
             const SizedBox(height: 32),
             Row(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -29,9 +50,8 @@ class DetailScreen extends StatelessWidget {
                     decoration: BoxDecoration(
                       borderRadius:
                           BorderRadius.circular(16), // Set the border radius
-                      image: const DecorationImage(
-                        image: AssetImage(
-                            'assets/images/comics/detective_comics.jpg'),
+                      image: DecorationImage(
+                        image: AssetImage(comicData.coverImage),
                         fit: BoxFit
                             .cover, // This will ensure the image covers the container
                       ),
@@ -53,7 +73,7 @@ class DetailScreen extends StatelessWidget {
                                 SizedBox(
                                   width: 170,
                                   child: Text(
-                                    'The Dark Knight',
+                                    comicData.title,
                                     maxLines: 3,
                                     overflow: TextOverflow.ellipsis,
                                     style: getComicBookRegular18(
@@ -62,7 +82,7 @@ class DetailScreen extends StatelessWidget {
                                 ),
                                 const SizedBox(height: 4),
                                 Text(
-                                  'Rayhan',
+                                  comicData.author,
                                   style:
                                       getComicBookRegular18(color: Colors.grey),
                                 ),
@@ -77,17 +97,13 @@ class DetailScreen extends StatelessWidget {
                                       width: 20, height: 20),
                                   const SizedBox(width: 4),
                                   Text(
-                                    // comicData.rating.toString(),
-                                    '4.7',
+                                    comicData.rating.toString(),
                                     style: getComicBookRegular14(
                                         color: Colors.black),
                                   ),
                                 ]),
-                                Image.asset(
-                                    // comicData.publisherImage,
-                                    'assets/images/dc_logo.png',
-                                    width: 40,
-                                    height: 50),
+                                Image.asset(comicData.publisherImage,
+                                    width: 40, height: 50),
                               ],
                             ),
                             const SizedBox(height: 12),
@@ -140,8 +156,10 @@ class DetailScreen extends StatelessWidget {
             const SizedBox(height: 8),
             Row(
               children: [
-                Text('Batman ', style: getHelveticaBold18(color: Colors.black)),
-                Text('(Bruce Wayne) ',
+                Text(comicData.mainCharacter,
+                    style: getHelveticaBold18(color: Colors.black)),
+                const SizedBox(width: 4),
+                Text('(${comicData.alias})',
                     style: getHelveticaRegular18(color: Colors.grey)),
               ],
             )
@@ -150,10 +168,93 @@ class DetailScreen extends StatelessWidget {
       );
     }
 
+    Widget synopsisComic() {
+      return Container(
+          margin: const EdgeInsets.only(top: 16),
+          padding: const EdgeInsets.symmetric(horizontal: 16),
+          child: Column(
+            children: [
+              Stack(
+                children: [
+                  Image.asset('assets/images/custom_card.png'),
+                  Container(
+                    margin: const EdgeInsets.only(top: 34, left: 40),
+                    child: Text(
+                      'SYNOPSIS',
+                      style: getHelveticaExtraBold16(color: Colors.black),
+                    ),
+                  ),
+                  Container(
+                    margin: const EdgeInsets.only(top: 62, left: 40, right: 34),
+                    child: Text(comicData.synopsis,
+                        maxLines: 4,
+                        overflow: TextOverflow.ellipsis,
+                        style: getChamsBlack14(color: Colors.black)),
+                  ),
+                  Positioned(
+                      right: 50, // Positions the container to the right end
+                      bottom: 40,
+                      child: Image.asset('assets/images/custom_dropdown.png',
+                          width: 30))
+                ],
+              ),
+              Container(
+                  margin: const EdgeInsets.only(bottom: 24),
+                  child: InkWell(
+                    onTap: () => {
+                      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                          content: Text('You are reading now'),
+                          duration: Duration(seconds: 2)))
+                    },
+                    child: Stack(
+                      children: [
+                        Image.asset('assets/images/custom_button.png'),
+                        Container(
+                            margin: const EdgeInsets.only(top: 26, left: 90),
+                            child: Text('READ NOW',
+                                style: getComicBookRegular28(
+                                    color: Colors.white))),
+                      ],
+                    ),
+                  )),
+            ],
+          ));
+    }
+
     return SafeArea(
       child: Scaffold(
-        body: headerComic(),
+        body: SingleChildScrollView(
+          child: Column(
+            children: [headerComic(), synopsisComic()],
+          ),
+        ),
       ),
     );
+  }
+}
+
+class FavoriteButton extends StatefulWidget {
+  const FavoriteButton({super.key});
+
+  @override
+  State<FavoriteButton> createState() => _FavoriteButtonState();
+}
+
+class _FavoriteButtonState extends State<FavoriteButton> {
+  bool isFavorite = false;
+
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+        onTap: () {
+          setState(() {
+            isFavorite = !isFavorite;
+          });
+        },
+        child: Image.asset(
+            isFavorite
+                ? 'assets/images/button_favorite_active.png'
+                : 'assets/images/button_favorite.png',
+            width: 20));
   }
 }
