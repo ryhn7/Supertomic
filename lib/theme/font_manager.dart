@@ -12,8 +12,8 @@ class FontGenera {
 class FontHelvetica {
   static const String fontFamily = 'Helvetica';
 }
-class FontConstants {
-  static const String fontFamily = 'PlayfairDisplay';
+class FontChams {
+  static const String fontFamily = 'Chams';
 }
 
 class FonttWeightManager{
