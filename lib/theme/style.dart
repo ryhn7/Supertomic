@@ -25,6 +25,12 @@ TextStyle getGeneraBoldStyle20(
       FonttWeightManager.fontWeightBold, color);
 }
 
+TextStyle getGeneraBoldStyle32(
+    {double fontSize = FontSize.s32, required Color color}) {
+  return _getTextStyle(fontSize, FontGenera.fontFamily,
+      FonttWeightManager.fontWeightBold, color);
+}
+
 // ComicBook
 TextStyle getComicBookRegular12(
     {double fontSize = FontSize.s12, required Color color}) {
